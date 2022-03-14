@@ -1,7 +1,7 @@
 import React from "react";
 import { Header } from "../components/header/Header";
 import { Rating } from "../components/homeComponents/Rating";
-
+import { Message } from "../components/LoadingComps/ErrorMsg";
 export const SingleProduct = () => {
   return (
     <>
@@ -46,6 +46,20 @@ export const SingleProduct = () => {
                   <button className="round-black-btn">Add To Cart</button>
                 </>
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* RATINGS */}
+        <div className="">
+          <div className="col-md-6">
+            <h6 className="mb-6">REVIEW</h6>
+            <Message variant={"alert-info mt-3"}>No Reviews</Message>
+            <div className="mb-5 ">
+              <strong>Admin Rigel</strong>
+              <Rating />
+              <span>February 18th 2022</span>
+              <div className=""></div>
             </div>
           </div>
         </div>
