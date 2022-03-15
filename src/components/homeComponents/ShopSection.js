@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import products from "../../data/products";
 import { Pagination } from "./Pagination";
 export const ShopSection = () => {
-  console.log(products);
   return (
     <>
       <div className="container">
