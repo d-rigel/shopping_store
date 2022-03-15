@@ -2,7 +2,10 @@ import React from "react";
 import { Header } from "../components/header/Header";
 import { Rating } from "../components/homeComponents/Rating";
 import { Message } from "../components/LoadingComps/ErrorMsg";
-export const SingleProduct = () => {
+import products from "../data/products";
+import { Link } from "react-router-dom";
+export const SingleProduct = ({ match }) => {
+  const product = products.find((p) => p._id === match.params.id);
   return (
     <>
       <Header />
@@ -10,41 +13,53 @@ export const SingleProduct = () => {
         <div className="row">
           <div className="col-md-6">
             <div className="single-image">
-              <img src="/images/7.png" alt="product name" />
+              <img src={product.image} alt={product.name} />
             </div>
           </div>
           <div className="col-md-6">
             <div className="product-dtl">
               <div className="product-info">
-                <div className="product-name"> product name</div>
+                <div className="product-name">{product.name}</div>
               </div>
-              <p>Product description</p>
+              <p>{product.description}</p>
 
               <div className="product-count col-lg-7 ">
                 <div className="flex-box d-flex justify-content-between align-items-center ">
                   <h6>Price</h6>
-                  <span>$559</span>
+                  <span>${product.price}</span>
                 </div>
 
                 <div className="flex-box d-flex justify-content-between align-items-center">
                   <h6>Status</h6>
-                  <span> In Stock</span>
-                  <span> unavailable</span>
+                  {product.countInStock > 0 ? (
+                    <span> In Stock</span>
+                  ) : (
+                    <span> unavailable</span>
+                  )}
                 </div>
 
                 <div className="flex-box d-flex justify-content-between align-items-center">
                   <h6>Reviews</h6>
-                  <Rating value={4} text={`${5} reviews`} />
+                  <Rating
+                    value={product.rating}
+                    text={`${product.numReviews} reviews`}
+                  />
                 </div>
-                <>
-                  <div className="flex-box d-flex justify-content-between align-items-center">
-                    <h6>Quantity</h6>
-                    <select>
-                      <option value={3}>4</option>
-                    </select>
-                  </div>
-                  <button className="round-black-btn">Add To Cart</button>
-                </>
+                {product.countInStock > 0 ? (
+                  <>
+                    <div className="flex-box d-flex justify-content-between align-items-center">
+                      <h6>Quantity</h6>
+                      <select>
+                        {[...Array(product.countInStock).keys()].map((x) => (
+                          <option key={x + 1} value={x + 1}>
+                            {x + 1}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    <button className="round-black-btn">Add To Cart</button>
+                  </>
+                ) : null}
               </div>
             </div>
           </div>
@@ -97,10 +112,10 @@ export const SingleProduct = () => {
               <div className="my-3">
                 <Message variant={"alert-warning"}>
                   Please{" "}
-                  {/* <Link to="/login">
-                  " <strong>Login</strong> "
-                </Link>{" "} */}
-                  login to write a review{" "}
+                  <Link to="/login">
+                    " <strong>Login</strong> "
+                  </Link>{" "}
+                  to write a review{" "}
                 </Message>
               </div>
             </div>
