@@ -1,12 +1,14 @@
 import React from "react";
 import { Header } from "../components/header/Header";
+import { ProfileTabs } from "../components/profileComponents/ProfileTabs";
+import { Orders } from "../components/profileComponents/Orders";
 
 export const ProfileScreen = () => {
   return (
     <>
       <Header />
-      <div className="container">
-        <div className="row ">
+      <div className="container mt-lg-5 mt-3">
+        <div className="row align-items-start ">
           <div className="col-lg-4 p-0 shadow ">
             <div className="author-card">
               <div className="author-card-cover"></div>
@@ -25,8 +27,7 @@ export const ProfileScreen = () => {
               </div>
             </div>
             <div className="wizard pt-3 ">
-              {/* <div class="d-flex align-items-start"> */}
-              <div className="d-flex">
+              <div class="d-flex align-items-start">
                 <div
                   class="nav align-items-start flex-column col-12 nav-pills me-3 "
                   id="v-pills-tab"
@@ -57,6 +58,25 @@ export const ProfileScreen = () => {
                   </button>
                 </div>
               </div>
+            </div>
+          </div>
+          {/* panels */}
+          <div
+            class="tab-content col-lg-8 pb-5 pt-lg-0 pt-3"
+            id="v-pills-tabContent">
+            <div
+              class="tab-pane fade show active"
+              id="v-pills-home"
+              role="tabpanel"
+              aria-labelledby="v-pills-home-tab">
+              <ProfileTabs />
+            </div>
+            <div
+              class="tab-pane fade"
+              id="v-pills-profile"
+              role="tabpanel"
+              aria-labelledby="v-pills-profile-tab">
+              <Orders />
             </div>
           </div>
         </div>
