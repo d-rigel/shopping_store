@@ -6,6 +6,7 @@ import { SingleProduct } from "./screens/SingleProduct";
 import { Login } from "./screens/Login";
 import { Register } from "./screens/Register";
 import { ProfileScreen } from "./screens/ProfileScreen";
+import { CartScreen } from "./screens/CartScreen";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
         <Route path="/Profile" component={ProfileScreen} />
+        <Route path="/cart/:id?" component={CartScreen} />
       </Switch>
     </Router>
   );
