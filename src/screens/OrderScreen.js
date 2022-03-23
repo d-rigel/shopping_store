@@ -72,7 +72,6 @@ export const OrderScreen = () => {
             </div>
           </div>
         </div>
-        {/* next */}
         <div className="row order-products justify-content-between">
           <div className="col-lg-8">
             {/* <Message variant="alert-info mt-5">Your order is empty</Message> */}
