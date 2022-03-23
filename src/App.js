@@ -12,6 +12,8 @@ import { PaymentScreen } from "./screens/PaymentScreen";
 import { PlaceOrderScreen } from "./screens/PlaceOrderScreen";
 import { OrderScreen } from "./screens/OrderScreen";
 import { NotFound } from "./screens/NotFound";
+// import { Loading } from "./components/LoadingComps/Loading";
+// import { Toast } from "./components/LoadingComps/Toast";
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
         <Route path="/placeorder" component={PlaceOrderScreen} />
         <Route path="/order" component={OrderScreen} />
         <Route path="*" component={NotFound} />
+        {/* <Route path="/loading" component={Loading} /> */}
+        {/* <Route path="/toast" component={Toast} /> */}
       </Switch>
     </Router>
   );
