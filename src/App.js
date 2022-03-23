@@ -7,6 +7,8 @@ import { Login } from "./screens/Login";
 import { Register } from "./screens/Register";
 import { ProfileScreen } from "./screens/ProfileScreen";
 import { CartScreen } from "./screens/CartScreen";
+import { ShippingScreen } from "./screens/ShippingScreen";
+import { PaymentScreen } from "./screens/PaymentScreen";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route path="/register" component={Register} />
         <Route path="/Profile" component={ProfileScreen} />
         <Route path="/cart/:id?" component={CartScreen} />
+        <Route path="/shipping" component={ShippingScreen} />
+        <Route path="/payment" component={PaymentScreen} />
       </Switch>
     </Router>
   );
