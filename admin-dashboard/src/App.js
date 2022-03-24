@@ -1,10 +1,18 @@
+import React from "react";
 import "./App.css";
-
+import "./Responsive.css";
+import "react-toastify/dist/ReactToastify.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HomeScreen } from "./screens/HomeScreen";
 function App() {
   return (
-    <div className="App">
-      <h6>App js</h6>
-    </div>
+    <>
+      <Router>
+        <Switch>
+          <Route path="/" component={HomeScreen} exact />
+        </Switch>
+      </Router>
+    </>
   );
 }
 
